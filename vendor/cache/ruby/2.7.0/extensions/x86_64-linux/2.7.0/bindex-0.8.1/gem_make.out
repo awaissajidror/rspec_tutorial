@@ -1,0 +1,15 @@
+current directory: /home/active/Desktop/rspec_tutorial/rspec_test_app/vendor/cache/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/home/active/.rbenv/versions/2.7.2/bin/ruby -I /home/active/.rbenv/versions/2.7.2/lib/ruby/2.7.0 -r ./siteconf20220127-114292-10lad0r.rb extconf.rb
+creating Makefile
+
+current directory: /home/active/Desktop/rspec_tutorial/rspec_test_app/vendor/cache/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/active/Desktop/rspec_tutorial/rspec_test_app/vendor/cache/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/active/Desktop/rspec_tutorial/rspec_test_app/vendor/cache/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20220127-114292-13x59q3/skiptrace/internal

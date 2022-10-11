@@ -1,0 +1,68 @@
+What is rspec
+
+* Domain-specific language testing tool written in Ruby to test Ruby code
+* A behavior-driven development framework
+
+What is BDD & TDD / What’s the Difference? (TDD & BDD)
+
+* BDD is designed to test an application's behavior from the end user's standpoint
+* BDD is a development technique that focuses on the system's behavior
+
+* TDD is focused on testing smaller pieces of functionality in isolation.
+* TDD is a development technique that focuses more on the implementation of a feature.
+
+How You’re Testing
+
+* BDD involves product managers, developers, and test engineers who collaborate to come up
+  with concrete examples of desirable functionality.
+
+* TDD can be done by a solo developer without any external input
+
+How They Work Together(BDD / TDD)
+
+describe Person do
+	context 'When testing the Person class' do
+		it "should say 'Callie Trop' when we call the name method" do
+		end
+	end
+end
+
+Developers can then add TDD elements to test specific objects:
+
+it "should say 'Callie Trop' when we call the name method" do
+	person = Person.new
+	person_name = person.name
+	expect(person_name).to eq 'Callie Trop'
+end
+
+What are describe, context & it key words
+
+The describe Keyword
+
+* Is an RSpec keyword.
+* Used to define an "Example Group".
+* You can think as a collection of tests.
+* Can take a class name and/or string
+
+The context Keyword
+* Is similar to describe.
+* It too can accept a class name and/or string argument.
+* The idea of context is that it encloses tests of a certain type. (Give Example => Update)
+* Not mandatory, but it helps to add more details about the examples
+
+The it Keyword
+* Used to define an “Example”
+* Example is basically a test or a test case.
+* It describes that expected outcome is for the Example.
+
+The expect Keyword
+* Used to define an “Expectation” in RSpec.
+* expect(message).to eql "Hello World!"
+
+The to keyword
+
+* Used as part of expect statements
+* You can also use the not_to
+
+The eql keyword
+* Simply matcher
