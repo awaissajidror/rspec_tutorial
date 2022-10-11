@@ -81,7 +81,7 @@ module ActionDispatch
 
         # This method sets a weak ETag validator on the response so browsers
         # and proxies may cache the response, keyed on the ETag. On subsequent
-        # requests, the If-None-Match header is set to the cached ETag. If it
+        # controllers, the If-None-Match header is set to the cached ETag. If it
         # matches the current ETag, we can return a 304 Not Modified response
         # with no body, letting the browser or proxy know that their cache is
         # current. Big savings in request time and network bandwidth.
@@ -92,7 +92,7 @@ module ActionDispatch
         # is viewing.
         #
         # Strong ETags are considered byte-for-byte identical. They allow a
-        # browser or proxy cache to support Range requests, useful for paging
+        # browser or proxy cache to support Range controllers, useful for paging
         # through a PDF file or scrubbing through a video. Some CDNs only
         # support strong ETags and will ignore weak ETags entirely.
         #

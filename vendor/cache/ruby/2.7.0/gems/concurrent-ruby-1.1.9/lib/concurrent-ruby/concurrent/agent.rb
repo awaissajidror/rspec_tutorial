@@ -65,7 +65,7 @@ module Concurrent
   # # create an agent with an initial value
   # agent = Concurrent::Agent.new(next_fibonacci)
   #
-  # # send a few update requests
+  # # send a few update controllers
   # 5.times do
   #   agent.send{|set| next_fibonacci(set) }
   # end

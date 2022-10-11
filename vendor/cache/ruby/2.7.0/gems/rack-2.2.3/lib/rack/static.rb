@@ -2,14 +2,14 @@
 
 module Rack
 
-  # The Rack::Static middleware intercepts requests for static files
+  # The Rack::Static middleware intercepts controllers for static files
   # (javascript files, images, stylesheets, etc) based on the url prefixes or
   # route mappings passed in the options, and serves them using a Rack::Files
   # object. This allows a Rack stack to serve both static and dynamic content.
   #
   # Examples:
   #
-  # Serve all requests beginning with /media from the "media" folder located
+  # Serve all controllers beginning with /media from the "media" folder located
   # in the current directory (ie media/*):
   #
   #     use Rack::Static, :urls => ["/media"]
@@ -19,17 +19,17 @@ module Rack
   #
   #     use Rack::Static, :urls => ["/media"], :cascade => true
   #
-  # Serve all requests beginning with /css or /images from the folder "public"
+  # Serve all controllers beginning with /css or /images from the folder "public"
   # in the current directory (ie public/css/* and public/images/*):
   #
   #     use Rack::Static, :urls => ["/css", "/images"], :root => "public"
   #
-  # Serve all requests to / with "index.html" from the folder "public" in the
+  # Serve all controllers to / with "index.html" from the folder "public" in the
   # current directory (ie public/index.html):
   #
   #     use Rack::Static, :urls => {"/" => 'index.html'}, :root => 'public'
   #
-  # Serve all requests normally from the folder "public" in the current
+  # Serve all controllers normally from the folder "public" in the current
   # directory but uses index.html as default route for "/"
   #
   #     use Rack::Static, :urls => [""], :root => 'public', :index =>

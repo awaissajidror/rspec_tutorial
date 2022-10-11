@@ -152,7 +152,7 @@ module Rails
   # == Mount priority
   #
   # Note that now there can be more than one router in your application, and it's better to avoid
-  # passing requests through many routers. Consider this situation:
+  # passing controllers through many routers. Consider this situation:
   #
   #   Rails.application.routes.draw do
   #     mount MyEngine::Engine => "/blog"
@@ -160,7 +160,7 @@ module Rails
   #   end
   #
   # +MyEngine+ is mounted at <tt>/blog</tt>, and <tt>/blog/omg</tt> points to application's
-  # controller. In such a situation, requests to <tt>/blog/omg</tt> will go through +MyEngine+,
+  # controller. In such a situation, controllers to <tt>/blog/omg</tt> will go through +MyEngine+,
   # and if there is no such route in +Engine+'s routes, it will be dispatched to <tt>main#omg</tt>.
   # It's much better to swap that:
   #
@@ -169,7 +169,7 @@ module Rails
   #     mount MyEngine::Engine => "/blog"
   #   end
   #
-  # Now, +Engine+ will get only requests that were not handled by +Application+.
+  # Now, +Engine+ will get only controllers that were not handled by +Application+.
   #
   # == Engine name
   #

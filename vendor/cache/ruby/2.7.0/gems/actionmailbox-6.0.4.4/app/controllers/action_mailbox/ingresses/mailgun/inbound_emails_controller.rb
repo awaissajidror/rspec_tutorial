@@ -8,7 +8,7 @@ module ActionMailbox
   # - +token+: A randomly-generated, 50-character string
   # - +signature+: A hexadecimal HMAC-SHA256 of the timestamp concatenated with the token, generated using the Mailgun API key
   #
-  # Authenticates requests by validating their signatures.
+  # Authenticates controllers by validating their signatures.
   #
   # Returns:
   #
@@ -22,7 +22,7 @@ module ActionMailbox
   # == Usage
   #
   # 1. Give Action Mailbox your {Mailgun API key}[https://help.mailgun.com/hc/en-us/articles/203380100-Where-can-I-find-my-API-key-and-SMTP-credentials-]
-  #    so it can authenticate requests to the Mailgun ingress.
+  #    so it can authenticate controllers to the Mailgun ingress.
   #
   #    Use <tt>rails credentials:edit</tt> to add your API key to your application's encrypted credentials under
   #    +action_mailbox.mailgun_api_key+, where Action Mailbox will automatically find it:

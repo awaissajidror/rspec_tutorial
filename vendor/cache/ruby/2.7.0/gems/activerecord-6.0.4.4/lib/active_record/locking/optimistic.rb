@@ -40,7 +40,7 @@ module ActiveRecord
     # or otherwise apply the business logic needed to resolve the conflict.
     #
     # This locking mechanism will function inside a single Ruby process. To make it work across all
-    # web requests, the recommended approach is to add +lock_version+ as a hidden field to your form.
+    # web controllers, the recommended approach is to add +lock_version+ as a hidden field to your form.
     #
     # This behavior can be turned off by setting <tt>ActiveRecord::Base.lock_optimistically = false</tt>.
     # To override the name of the +lock_version+ column, set the <tt>locking_column</tt> class attribute:

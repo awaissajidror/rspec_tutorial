@@ -5,7 +5,7 @@ require 'thread'
 module Puma
   # Internal Docs for A simple thread pool management object.
   #
-  # Each Puma "worker" has a thread pool to process requests.
+  # Each Puma "worker" has a thread pool to process controllers.
   #
   # First a connection to a client is made in `Puma::Server`. It is wrapped in a
   # `Puma::Client` instance and then passed to the `Puma::Reactor` to ensure
@@ -172,13 +172,13 @@ module Puma
     # pass to the reactor.
     #
     # The general idea is that the thread pool can only work on a fixed
-    # number of requests at the same time. If it is already processing that
-    # number of requests then it is at capacity. If another Puma process has
+    # number of controllers at the same time. If it is already processing that
+    # number of controllers then it is at capacity. If another Puma process has
     # spare capacity, then the request can be left on the socket so the other
     # worker can pick it up and process it.
     #
     # For example: if there are 5 threads, but only 4 working on
-    # requests, this method will not wait and the `Puma::Server`
+    # controllers, this method will not wait and the `Puma::Server`
     # can pull a request right away.
     #
     # If there are 5 threads and all 5 of them are busy, then it will

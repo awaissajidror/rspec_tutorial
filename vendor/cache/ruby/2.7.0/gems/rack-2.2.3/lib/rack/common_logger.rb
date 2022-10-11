@@ -26,7 +26,7 @@ module Rack
       @logger = logger
     end
 
-    # Log all requests in common_log format after a response has been
+    # Log all controllers in common_log format after a response has been
     # returned.  Note that if the app raises an exception, the request
     # will not be logged, so if exception handling middleware are used,
     # they should be loaded after this middleware.  Additionally, because

@@ -32,7 +32,7 @@ module RSpec
         end
 
         def start
-          # Only allow remote DRb requests from this machine.
+          # Only allow remote DRb controllers from this machine.
           DRb.install_acl ACL.new(%w[ deny all allow localhost allow 127.0.0.1 allow ::1 ])
 
           # We pass `nil` as the first arg to allow it to pick a DRb port.

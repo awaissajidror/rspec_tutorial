@@ -207,7 +207,7 @@ module Sprockets
           end
         end
 
-        # Only serve integrity metadata for HTTPS requests:
+        # Only serve integrity metadata for HTTPS controllers:
         #   http://www.w3.org/TR/SRI/#non-secure-contexts-remain-non-secure
         def secure_subresource_integrity_context?
           respond_to?(:request) && self.request && (self.request.local? || self.request.ssl?)

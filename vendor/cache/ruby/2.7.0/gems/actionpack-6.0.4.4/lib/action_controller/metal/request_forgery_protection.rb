@@ -15,31 +15,31 @@ module ActionController #:nodoc:
   # by including a token in the rendered HTML for your application. This token is
   # stored as a random string in the session, to which an attacker does not have
   # access. When a request reaches your application, \Rails verifies the received
-  # token with the token in the session. All requests are checked except GET requests
-  # as these should be idempotent. Keep in mind that all session-oriented requests
-  # are CSRF protected by default, including JavaScript and HTML requests.
+  # token with the token in the session. All controllers are checked except GET controllers
+  # as these should be idempotent. Keep in mind that all session-oriented controllers
+  # are CSRF protected by default, including JavaScript and HTML controllers.
   #
-  # Since HTML and JavaScript requests are typically made from the browser, we
+  # Since HTML and JavaScript controllers are typically made from the browser, we
   # need to ensure to verify request authenticity for the web browser. We can
-  # use session-oriented authentication for these types of requests, by using
+  # use session-oriented authentication for these types of controllers, by using
   # the <tt>protect_from_forgery</tt> method in our controllers.
   #
-  # GET requests are not protected since they don't have side effects like writing
-  # to the database and don't leak sensitive information. JavaScript requests are
+  # GET controllers are not protected since they don't have side effects like writing
+  # to the database and don't leak sensitive information. JavaScript controllers are
   # an exception: a third-party site can use a <script> tag to reference a JavaScript
   # URL on your site. When your JavaScript response loads on their site, it executes.
   # With carefully crafted JavaScript on their end, sensitive data in your JavaScript
   # response may be extracted. To prevent this, only XmlHttpRequest (known as XHR or
-  # Ajax) requests are allowed to make requests for JavaScript responses.
+  # Ajax) controllers are allowed to make controllers for JavaScript responses.
   #
   # Subclasses of <tt>ActionController::Base</tt> are protected by default with the
   # <tt>:exception</tt> strategy, which raises an
-  # <tt>ActionController::InvalidAuthenticityToken</tt> error on unverified requests.
+  # <tt>ActionController::InvalidAuthenticityToken</tt> error on unverified controllers.
   #
   # APIs may want to disable this behavior since they are typically designed to be
   # state-less: that is, the request API client handles the session instead of Rails.
   # One way to achieve this is to use the <tt>:null_session</tt> strategy instead,
-  # which allows unverified requests to be handled, but with an empty session:
+  # which allows unverified controllers to be handled, but with an empty session:
   #
   #   class ApplicationController < ActionController::Base
   #     protect_from_forgery with: :null_session
@@ -99,7 +99,7 @@ module ActionController #:nodoc:
     end
 
     module ClassMethods
-      # Turn on request forgery protection. Bear in mind that GET and HEAD requests are not checked.
+      # Turn on request forgery protection. Bear in mind that GET and HEAD controllers are not checked.
       #
       #   class ApplicationController < ActionController::Base
       #     protect_from_forgery
@@ -222,7 +222,7 @@ module ActionController #:nodoc:
       # Lean on the protect_from_forgery declaration to mark which actions are
       # due for same-origin request verification. If protect_from_forgery is
       # enabled on an action, this before_action flags its after_action to
-      # verify that JavaScript responses are for XHR requests, ensuring they
+      # verify that JavaScript responses are for XHR controllers, ensuring they
       # follow the browser's same-origin policy.
       def verify_authenticity_token # :doc:
         mark_for_same_origin_verification!
@@ -263,13 +263,13 @@ module ActionController #:nodoc:
         end
       end
 
-      # GET requests are checked for cross-origin JavaScript after rendering.
+      # GET controllers are checked for cross-origin JavaScript after rendering.
       def mark_for_same_origin_verification! # :doc:
         @marked_for_same_origin_verification = request.get?
       end
 
       # If the +verify_authenticity_token+ before_action ran, verify that
-      # JavaScript responses are only served to same-origin GET requests.
+      # JavaScript responses are only served to same-origin GET controllers.
       def marked_for_same_origin_verification? # :doc:
         @marked_for_same_origin_verification ||= false
       end
@@ -444,7 +444,7 @@ module ActionController #:nodoc:
       NULL_ORIGIN_MESSAGE = <<~MSG
         The browser returned a 'null' origin for a request with origin-based forgery protection turned on. This usually
         means you have the 'no-referrer' Referrer-Policy header enabled, or that the request came from a site that
-        refused to give its origin. This makes it impossible for Rails to verify the source of the requests. Likely the
+        refused to give its origin. This makes it impossible for Rails to verify the source of the controllers. Likely the
         best solution is to change your referrer policy to something less strict like same-origin or strict-origin.
         If you cannot change the referrer policy, you can disable origin checking with the
         Rails.application.config.action_controller.forgery_protection_origin_check setting.

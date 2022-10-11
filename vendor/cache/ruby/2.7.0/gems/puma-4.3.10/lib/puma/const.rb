@@ -87,7 +87,7 @@ module Puma
     304 => true
   }
 
-  # Frequently used constants when constructing requests or responses.  Many times
+  # Frequently used constants when constructing controllers or responses.  Many times
   # the constant just refers to a string with the same contents.  Using these constants
   # gave about a 3% to 10% performance improvement over using the strings directly.
   #
@@ -118,10 +118,10 @@ module Puma
     # sending data back
     WRITE_TIMEOUT = 10
 
-    # How many requests to attempt inline before sending a client back to
+    # How many controllers to attempt inline before sending a client back to
     # the reactor to be subject to normal ordering. The idea here is that
     # we amortize the cost of going back to the reactor for a well behaved
-    # but very "greedy" client across 10 requests. This prevents a not
+    # but very "greedy" client across 10 controllers. This prevents a not
     # well behaved client from monopolizing the thread forever.
     MAX_FAST_INLINE = 10
 
@@ -138,9 +138,9 @@ module Puma
     ERROR_RESPONSE = {
       # Indicate that we couldn't parse the request
       400 => "HTTP/1.1 400 Bad Request\r\n\r\n".freeze,
-      # The standard empty 404 response for bad requests.  Use Error4040Handler for custom stuff.
+      # The standard empty 404 response for bad controllers.  Use Error4040Handler for custom stuff.
       404 => "HTTP/1.1 404 Not Found\r\nConnection: close\r\nServer: Puma #{PUMA_VERSION}\r\n\r\nNOT FOUND".freeze,
-      # The standard empty 408 response for requests that timed out.
+      # The standard empty 408 response for controllers that timed out.
       408 => "HTTP/1.1 408 Request Timeout\r\nConnection: close\r\nServer: Puma #{PUMA_VERSION}\r\n\r\n".freeze,
       # Indicate that there was an internal error, obviously.
       500 => "HTTP/1.1 500 Internal Server Error\r\n\r\n".freeze,

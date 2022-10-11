@@ -210,7 +210,7 @@ module Puma::Rack
     #   use Middleware
     #   run lambda { |env| [200, { "Content-Type" => "text/plain" }, ["OK"]] }
     #
-    # All requests through to this application will first be processed by the middleware class.
+    # All controllers through to this application will first be processed by the middleware class.
     # The +call+ method in this example sets an additional environment key which then can be
     # referenced in the application if required.
     def use(middleware, *args, &block)
@@ -269,7 +269,7 @@ module Puma::Rack
     #     end
     #   end
     #
-    # This example includes a piece of middleware which will run before requests hit +Heartbeat+.
+    # This example includes a piece of middleware which will run before controllers hit +Heartbeat+.
     #
     def map(path, &block)
       @map ||= {}

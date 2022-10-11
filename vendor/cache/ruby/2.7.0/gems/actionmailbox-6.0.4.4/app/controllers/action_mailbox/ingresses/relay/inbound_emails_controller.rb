@@ -3,10 +3,10 @@
 module ActionMailbox
   # Ingests inbound emails relayed from an SMTP server.
   #
-  # Authenticates requests using HTTP basic access authentication. The username is always +actionmailbox+, and the
+  # Authenticates controllers using HTTP basic access authentication. The username is always +actionmailbox+, and the
   # password is read from the application's encrypted credentials or an environment variable. See the Usage section below.
   #
-  # Note that basic authentication is insecure over unencrypted HTTP. An attacker that intercepts cleartext requests to
+  # Note that basic authentication is insecure over unencrypted HTTP. An attacker that intercepts cleartext controllers to
   # the ingress can learn its password. You should only use this ingress over HTTPS.
   #
   # Returns:
@@ -25,7 +25,7 @@ module ActionMailbox
   #        # config/environments/production.rb
   #        config.action_mailbox.ingress = :relay
   #
-  # 2. Generate a strong password that Action Mailbox can use to authenticate requests to the ingress.
+  # 2. Generate a strong password that Action Mailbox can use to authenticate controllers to the ingress.
   #
   #    Use <tt>rails credentials:edit</tt> to add the password to your application's encrypted credentials under
   #    +action_mailbox.ingress_password+, where Action Mailbox will automatically find it:

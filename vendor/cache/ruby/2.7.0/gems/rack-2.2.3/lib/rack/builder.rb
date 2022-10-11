@@ -147,7 +147,7 @@ module Rack
     #   use Middleware
     #   run lambda { |env| [200, { "Content-Type" => "text/plain" }, ["OK"]] }
     #
-    # All requests through to this application will first be processed by the middleware class.
+    # All controllers through to this application will first be processed by the middleware class.
     # The +call+ method in this example sets an additional environment key which then can be
     # referenced in the application if required.
     def use(middleware, *args, &block)
@@ -192,7 +192,7 @@ module Rack
     end
 
     # Creates a route within the application.  Routes under the mapped path will be sent to
-    # the Rack application specified by run inside the block.  Other requests will be sent to the
+    # the Rack application specified by run inside the block.  Other controllers will be sent to the
     # default application specified by run outside the block.
     #
     #   Rack::Builder.app do
@@ -212,7 +212,7 @@ module Rack
     #     run App
     #   end
     #
-    # This example includes a piece of middleware which will run before +/heartbeat+ requests hit +Heartbeat+.
+    # This example includes a piece of middleware which will run before +/heartbeat+ controllers hit +Heartbeat+.
     #
     # Note that providing a +path+ of +/+ will ignore any default application given in a +run+ statement
     # outside the block.

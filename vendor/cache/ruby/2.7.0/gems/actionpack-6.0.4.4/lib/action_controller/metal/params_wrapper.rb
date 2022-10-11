@@ -7,7 +7,7 @@ require "action_dispatch/http/mime_type"
 
 module ActionController
   # Wraps the parameters hash into a nested hash. This will allow clients to
-  # submit requests without having to specify any root elements.
+  # submit controllers without having to specify any root elements.
   #
   # This functionality is enabled in +config/initializers/wrap_parameters.rb+
   # and can be customized.

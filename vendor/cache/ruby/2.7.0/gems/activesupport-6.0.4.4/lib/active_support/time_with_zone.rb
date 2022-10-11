@@ -182,7 +182,7 @@ module ActiveSupport
     end
 
     # Returns a string of the object's date and time in the format used by
-    # HTTP requests.
+    # HTTP controllers.
     #
     #   Time.zone.now.httpdate  # => "Tue, 01 Jan 2013 04:39:43 GMT"
     def httpdate

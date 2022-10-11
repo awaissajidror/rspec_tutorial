@@ -59,7 +59,7 @@ module ActionDispatch
       end
     end
 
-    # An instance of this class represents a set of requests and responses
+    # An instance of this class represents a set of controllers and responses
     # performed sequentially by a test process. Because you can instantiate
     # multiple sessions and run them side-by-side, you can also mimic (to some
     # limited extent) multiple simultaneous users interacting with your system.
@@ -108,7 +108,7 @@ module ActionDispatch
       # A reference to the response instance used by the last request.
       attr_reader :response
 
-      # A running counter of the number of requests processed.
+      # A running counter of the number of controllers processed.
       attr_accessor :request_count
 
       include ActionDispatch::Routing::UrlFor

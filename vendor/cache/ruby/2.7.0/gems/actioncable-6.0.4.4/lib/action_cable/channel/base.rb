@@ -7,7 +7,7 @@ module ActionCable
   module Channel
     # The channel provides the basic structure of grouping behavior into logical units when communicating over the WebSocket connection.
     # You can think of a channel like a form of controller, but one that's capable of pushing content to the subscriber in addition to simply
-    # responding to the subscriber's direct requests.
+    # responding to the subscriber's direct controllers.
     #
     # Channel instances are long-lived. A channel object will be instantiated when the cable consumer becomes a subscriber, and then
     # lives until the consumer disconnects. This may be seconds, minutes, hours, or even days. That means you have to take special care
@@ -17,7 +17,7 @@ module ActionCable
     # Long-lived channels (and connections) also mean you're responsible for ensuring that the data is fresh. If you hold a reference to a user
     # record, but the name is changed while that reference is held, you may be sending stale data if you don't take precautions to avoid it.
     #
-    # The upside of long-lived channel instances is that you can use instance variables to keep reference to objects that future subscriber requests
+    # The upside of long-lived channel instances is that you can use instance variables to keep reference to objects that future subscriber controllers
     # can interact with. Here's a quick example:
     #
     #   class ChatChannel < ApplicationCable::Channel
@@ -78,7 +78,7 @@ module ActionCable
     # identifiers will automatically create a delegation method of the same name
     # on the channel instance.
     #
-    # == Rejecting subscription requests
+    # == Rejecting subscription controllers
     #
     # A channel can reject a subscription request in the #subscribed callback by
     # invoking the #reject method:

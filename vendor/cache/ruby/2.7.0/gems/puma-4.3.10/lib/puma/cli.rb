@@ -165,11 +165,11 @@ module Puma
             user_config.extra_runtime_dependencies arg.split(',')
           end
 
-          o.on "-q", "--quiet", "Do not log requests internally (default true)" do
+          o.on "-q", "--quiet", "Do not log controllers internally (default true)" do
             user_config.quiet
           end
 
-          o.on "-v", "--log-requests", "Log requests as they occur" do
+          o.on "-v", "--log-controllers", "Log controllers as they occur" do
             user_config.log_requests
           end
 

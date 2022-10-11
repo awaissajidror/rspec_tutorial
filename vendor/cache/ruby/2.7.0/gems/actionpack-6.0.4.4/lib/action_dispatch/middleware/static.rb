@@ -105,7 +105,7 @@ module ActionDispatch
   # This middleware verifies the path to ensure that only files
   # living in the root directory can be rendered. A request cannot
   # produce a directory traversal using this middleware. Only 'GET' and 'HEAD'
-  # requests will result in a file being returned.
+  # controllers will result in a file being returned.
   class Static
     def initialize(app, path, index: "index", headers: {})
       @app = app

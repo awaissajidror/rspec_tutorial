@@ -37,8 +37,8 @@ module ActionView
     # host. The exact number varies by browser and version. This limit may cause
     # some asset downloads to wait for previous assets to finish before they can
     # begin. You can use the <tt>%d</tt> wildcard in the +asset_host+ to
-    # distribute the requests over four hosts. For example,
-    # <tt>assets%d.example.com</tt> will spread the asset requests over
+    # distribute the controllers over four hosts. For example,
+    # <tt>assets%d.example.com</tt> will spread the asset controllers over
     # "assets0.example.com", ..., "assets3.example.com".
     #
     #   image_tag("rails.png")
@@ -94,7 +94,7 @@ module ActionView
     # Alternatively you may ask for a second parameter +request+. That one is
     # particularly useful for serving assets from an SSL-protected page. The
     # example proc below disables asset hosting for HTTPS connections, while
-    # still sending assets for plain HTTP requests from asset hosts. If you don't
+    # still sending assets for plain HTTP controllers from asset hosts. If you don't
     # have SSL certificates for each of the asset hosts this technique allows you
     # to avoid warnings in the client about mixed media.
     # Note that the +request+ parameter might not be supplied, e.g. when the assets

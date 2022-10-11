@@ -117,7 +117,7 @@ module ActiveStorage
       raise NotImplementedError
     end
 
-    # Returns a Hash of headers for +url_for_direct_upload+ requests.
+    # Returns a Hash of headers for +url_for_direct_upload+ controllers.
     def headers_for_direct_upload(key, filename:, content_type:, content_length:, checksum:)
       {}
     end

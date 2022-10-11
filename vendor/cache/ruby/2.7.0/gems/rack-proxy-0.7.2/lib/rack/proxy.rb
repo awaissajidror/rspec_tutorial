@@ -42,7 +42,7 @@ module Rack
       end
     end
 
-    # @option opts [String, URI::HTTP] :backend Backend host to proxy requests to
+    # @option opts [String, URI::HTTP] :backend Backend host to proxy controllers to
     def initialize(app = nil, opts= {})
       if app.is_a?(Hash)
         opts = app

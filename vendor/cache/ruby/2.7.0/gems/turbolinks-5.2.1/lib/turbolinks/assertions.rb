@@ -32,7 +32,7 @@ module Turbolinks
     #
     # We can't check `request.xhr?` here, either, since the X-Requested-With
     # header is cleared after controller action processing to prevent it
-    # from leaking into subsequent requests.
+    # from leaking into subsequent controllers.
     def turbolinks_request?
       !request.get? && (response.try(:media_type) || response.content_type) == "text/javascript"
     end

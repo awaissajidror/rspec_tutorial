@@ -3,9 +3,9 @@
 module ActionDispatch
   # This middleware is added to the stack when <tt>config.force_ssl = true</tt>, and is passed
   # the options set in +config.ssl_options+. It does three jobs to enforce secure HTTP
-  # requests:
+  # controllers:
   #
-  # 1. <b>TLS redirect</b>: Permanently redirects +http://+ requests to +https://+
+  # 1. <b>TLS redirect</b>: Permanently redirects +http://+ controllers to +https://+
   #    with the same URL host, path, etc. Enabled by default. Set +config.ssl_options+
   #    to modify the destination URL
   #    (e.g. <tt>redirect: { host: "secure.widgets.com", port: 8080 }</tt>), or set
@@ -15,14 +15,14 @@ module ActionDispatch
   #
   #      config.ssl_options = { redirect: { exclude: -> request { request.path =~ /healthcheck/ } } }
   #
-  #    Cookies will not be flagged as secure for excluded requests.
+  #    Cookies will not be flagged as secure for excluded controllers.
   #
   # 2. <b>Secure cookies</b>: Sets the +secure+ flag on cookies to tell browsers they
-  #    must not be sent along with +http://+ requests. Enabled by default. Set
+  #    must not be sent along with +http://+ controllers. Enabled by default. Set
   #    +config.ssl_options+ with <tt>secure_cookies: false</tt> to disable this feature.
   #
   # 3. <b>HTTP Strict Transport Security (HSTS)</b>: Tells the browser to remember
-  #    this site as TLS-only and automatically redirect non-TLS requests.
+  #    this site as TLS-only and automatically redirect non-TLS controllers.
   #    Enabled by default. Configure +config.ssl_options+ with <tt>hsts: false</tt> to disable.
   #
   #    Set +config.ssl_options+ with <tt>hsts: { ... }</tt> to configure HSTS:

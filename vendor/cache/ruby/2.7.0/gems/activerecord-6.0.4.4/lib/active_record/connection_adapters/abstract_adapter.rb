@@ -548,7 +548,7 @@ module ActiveRecord
         @lock.synchronize { @statements.clear } if @statements
       end
 
-      # Returns true if its required to reload the connection between requests for development mode.
+      # Returns true if its required to reload the connection between controllers for development mode.
       def requires_reloading?
         false
       end

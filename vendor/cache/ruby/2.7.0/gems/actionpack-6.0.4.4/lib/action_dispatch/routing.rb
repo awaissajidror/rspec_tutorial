@@ -4,11 +4,11 @@ require "active_support/core_ext/string/filters"
 
 module ActionDispatch
   # The routing module provides URL rewriting in native Ruby. It's a way to
-  # redirect incoming requests to controllers and actions. This replaces
+  # redirect incoming controllers to controllers and actions. This replaces
   # mod_rewrite rules. Best of all, Rails' \Routing works with any web server.
   # Routes are defined in <tt>config/routes.rb</tt>.
   #
-  # Think of creating routes as drawing a map for your requests. The map tells
+  # Think of creating routes as drawing a map for your controllers. The map tells
   # them where to go based on some predefined pattern:
   #
   #   Rails.application.routes.draw do

@@ -69,7 +69,7 @@ table { width:100%%; }
       end
     end
 
-    # The root of the directory hierarchy.  Only requests for files and
+    # The root of the directory hierarchy.  Only controllers for files and
     # directories inside of the root directory are supported.
     attr_reader :root
 
@@ -86,7 +86,7 @@ table { width:100%%; }
     end
 
     # Internals of request handling.  Similar to call but does
-    # not remove body for HEAD requests.
+    # not remove body for HEAD controllers.
     def get(env)
       script_name = env[SCRIPT_NAME]
       path_info = Utils.unescape_path(env[PATH_INFO])
@@ -99,7 +99,7 @@ table { width:100%%; }
       end
     end
 
-    # Rack response to use for requests with invalid paths, or nil if path is valid.
+    # Rack response to use for controllers with invalid paths, or nil if path is valid.
     def check_bad_request(path_info)
       return if Utils.valid_path?(path_info)
 
@@ -109,7 +109,7 @@ table { width:100%%; }
         "X-Cascade" => "pass" }, [body]]
     end
 
-    # Rack response to use for requests with paths outside the root, or nil if path is inside the root.
+    # Rack response to use for controllers with paths outside the root, or nil if path is inside the root.
     def check_forbidden(path_info)
       return unless path_info.include? ".."
       return if ::File.expand_path(::File.join(@root, path_info)).start_with?(@root)

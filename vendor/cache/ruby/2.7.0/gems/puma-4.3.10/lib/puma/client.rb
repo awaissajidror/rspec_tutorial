@@ -36,7 +36,7 @@ module Puma
   # the header and body are fully buffered via the `try_to_finish` method.
   # They can be used to "time out" a response via the `timeout_at` reader.
   class Client
-    # The object used for a request with no body. All requests with
+    # The object used for a request with no body. All controllers with
     # no body share this one object since it has no state.
     EmptyBody = NullIO.new
 

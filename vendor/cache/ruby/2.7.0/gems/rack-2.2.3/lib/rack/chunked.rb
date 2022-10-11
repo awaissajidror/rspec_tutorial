@@ -82,7 +82,7 @@ module Rack
     # Whether the HTTP version supports chunked encoding (HTTP 1.1 does).
     def chunkable_version?(ver)
       case ver
-      # pre-HTTP/1.0 (informally "HTTP/0.9") HTTP requests did not have
+      # pre-HTTP/1.0 (informally "HTTP/0.9") HTTP controllers did not have
       # a version (nor response headers)
       when 'HTTP/1.0', nil, 'HTTP/0.9'
         false

@@ -160,7 +160,7 @@ class ActiveStorage::Blob < ActiveRecord::Base
     service.url_for_direct_upload key, expires_in: expires_in, content_type: content_type, content_length: byte_size, checksum: checksum
   end
 
-  # Returns a Hash of headers for +service_url_for_direct_upload+ requests.
+  # Returns a Hash of headers for +service_url_for_direct_upload+ controllers.
   def service_headers_for_direct_upload
     service.headers_for_direct_upload key, filename: filename, content_type: content_type, content_length: byte_size, checksum: checksum
   end

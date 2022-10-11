@@ -317,7 +317,7 @@ module ActionDispatch
     end
 
     # Read the request \body. This is useful for web services that need to
-    # work with raw requests directly.
+    # work with raw controllers directly.
     def raw_post
       unless has_header? "RAW_POST_DATA"
         raw_post_body = body

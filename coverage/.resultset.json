@@ -13,25 +13,6 @@
           null
         ]
       },
-      "/home/active/Desktop/Workspace/Ruby/Own/rspec_tutorial/rspec_test_app/app/models/widget.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/home/active/Desktop/Workspace/Ruby/Own/rspec_tutorial/rspec_test_app/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/active/Desktop/Workspace/Ruby/Own/rspec_tutorial/rspec_test_app/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
       "/home/active/Desktop/Workspace/Ruby/Own/rspec_tutorial/rspec_test_app/app/controllers/widgets_controller.rb": {
         "lines": [
           null,
@@ -42,7 +23,6 @@
           null,
           1,
           0,
-          0,
           null,
           null,
           1,
@@ -85,6 +65,25 @@
           1,
           0,
           null,
+          null
+        ]
+      },
+      "/home/active/Desktop/Workspace/Ruby/Own/rspec_tutorial/rspec_test_app/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/active/Desktop/Workspace/Ruby/Own/rspec_tutorial/rspec_test_app/app/models/widget.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/active/Desktop/Workspace/Ruby/Own/rspec_tutorial/rspec_test_app/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
           null
         ]
       },
@@ -132,6 +131,6 @@
         }
       }
     },
-    "timestamp": 1665486620
+    "timestamp": 1665486980
   }
 }

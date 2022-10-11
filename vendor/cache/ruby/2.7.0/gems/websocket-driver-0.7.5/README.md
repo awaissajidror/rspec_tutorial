@@ -150,7 +150,7 @@ module Connection
       if WebSocket::Driver.websocket?(@driver.env)
         @driver.start
       else
-        # handle other HTTP requests, for example
+        # handle other HTTP controllers, for example
         body = '<h1>hello</h1>'
         response = [
           'HTTP/1.1 200 OK',

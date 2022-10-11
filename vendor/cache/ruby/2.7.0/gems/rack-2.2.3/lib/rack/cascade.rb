@@ -13,7 +13,7 @@ module Rack
     # An array of applications to try in order.
     attr_reader :apps
 
-    # Set the apps to send requests to, and what statuses result in
+    # Set the apps to send controllers to, and what statuses result in
     # cascading.  Arguments:
     #
     # apps: An enumerable of rack applications.

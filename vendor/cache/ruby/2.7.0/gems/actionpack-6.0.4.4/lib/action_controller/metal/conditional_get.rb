@@ -42,15 +42,15 @@ module ActionController
     #   response if it matches the ETag exactly. A weak ETag indicates semantic
     #   equivalence, not byte-for-byte equality, so they're good for caching
     #   HTML pages in browser caches. They can't be used for responses that
-    #   must be byte-identical, like serving Range requests within a PDF file.
+    #   must be byte-identical, like serving Range controllers within a PDF file.
     # * <tt>:strong_etag</tt> Sets a "strong" ETag validator on the response.
     #   Requests that set If-None-Match header may return a 304 Not Modified
     #   response if it matches the ETag exactly. A strong ETag implies exact
     #   equality: the response must match byte for byte. This is necessary for
-    #   doing Range requests within a large video or PDF file, for example, or
+    #   doing Range controllers within a large video or PDF file, for example, or
     #   for compatibility with some CDNs that don't support weak ETags.
     # * <tt>:last_modified</tt> Sets a "weak" last-update validator on the
-    #   response. Subsequent requests that set If-Modified-Since may return a
+    #   response. Subsequent controllers that set If-Modified-Since may return a
     #   304 Not Modified response if last_modified <= If-Modified-Since.
     # * <tt>:public</tt> By default the Cache-Control header is private, set this to
     #   +true+ if you want your application to be cacheable by other devices (proxy caches).
@@ -132,15 +132,15 @@ module ActionController
     #   response if it matches the ETag exactly. A weak ETag indicates semantic
     #   equivalence, not byte-for-byte equality, so they're good for caching
     #   HTML pages in browser caches. They can't be used for responses that
-    #   must be byte-identical, like serving Range requests within a PDF file.
+    #   must be byte-identical, like serving Range controllers within a PDF file.
     # * <tt>:strong_etag</tt> Sets a "strong" ETag validator on the response.
     #   Requests that set If-None-Match header may return a 304 Not Modified
     #   response if it matches the ETag exactly. A strong ETag implies exact
     #   equality: the response must match byte for byte. This is necessary for
-    #   doing Range requests within a large video or PDF file, for example, or
+    #   doing Range controllers within a large video or PDF file, for example, or
     #   for compatibility with some CDNs that don't support weak ETags.
     # * <tt>:last_modified</tt> Sets a "weak" last-update validator on the
-    #   response. Subsequent requests that set If-Modified-Since may return a
+    #   response. Subsequent controllers that set If-Modified-Since may return a
     #   304 Not Modified response if last_modified <= If-Modified-Since.
     # * <tt>:public</tt> By default the Cache-Control header is private, set this to
     #   +true+ if you want your application to be cacheable by other devices (proxy caches).

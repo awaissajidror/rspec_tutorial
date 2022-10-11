@@ -121,7 +121,7 @@ module ActiveSupport
             wait_for(:start_sharing) { @exclusive_thread }
           else
             # This is an initial / outermost share call: any outstanding
-            # requests for an exclusive lock get to go first
+            # controllers for an exclusive lock get to go first
             wait_for(:start_sharing) { busy_for_sharing?(false) }
           end
           @sharing[Thread.current] += 1

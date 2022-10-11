@@ -59,7 +59,7 @@ module ActionCable
     # Unit test Action Cable connections.
     #
     # Useful to check whether a connection's +identified_by+ gets assigned properly
-    # and that any improper connection requests are rejected.
+    # and that any improper connection controllers are rejected.
     #
     # == Basic example
     #

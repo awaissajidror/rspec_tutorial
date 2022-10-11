@@ -218,7 +218,7 @@ module ActionController #:nodoc:
     end
 
     # A container for responses available from the current controller for
-    # requests for different mime-types sent to a particular action.
+    # controllers for different mime-types sent to a particular action.
     #
     # The public controller methods +respond_to+ may be called with a block
     # that is used to define responses to different mime-types, e.g.

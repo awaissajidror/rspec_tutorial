@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Rack
-  # Rack::Head returns an empty body for all HEAD requests. It leaves
-  # all other requests unchanged.
+  # Rack::Head returns an empty body for all HEAD controllers. It leaves
+  # all other controllers unchanged.
   class Head
     def initialize(app)
       @app = app

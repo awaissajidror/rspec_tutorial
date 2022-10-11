@@ -32,7 +32,7 @@ module RSpec
       job:        %w[spec jobs],
       mailer:     %w[spec mailers],
       model:      %w[spec models],
-      request:    %w[spec (requests|integration|api)],
+      request:    %w[spec (controllers|integration|api)],
       routing:    %w[spec routing],
       view:       %w[spec views],
       feature:    %w[spec features],

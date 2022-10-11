@@ -23,17 +23,17 @@ module Selenium
       module HasNetworkInterception
 
         #
-        # Intercepts requests coming from browser allowing
+        # Intercepts controllers coming from browser allowing
         # to either pass them through like proxy or provide
         # a stubbed response instead.
         #
-        # @example Log requests and pass through
+        # @example Log controllers and pass through
         #   driver.intercept do |request, &continue|
         #     puts "#{request.method} #{request.url}"
         #     continue.call(request)
         #   end
         #
-        # @example Stub requests for images
+        # @example Stub controllers for images
         #   driver.intercept do |request, &continue|
         #     if request.url.match?(/\.png$/)
         #       request.url = 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png'
@@ -128,7 +128,7 @@ module Selenium
           devtools.fetch.get_response_body(request_id: id).dig('result', 'body')
         rescue Error::WebDriverError
           # CDP fails to get body on certain responses (301) and raises:
-          # Can only get response body on requests captured after headers received.
+          # Can only get response body on controllers captured after headers received.
         end
       end # HasNetworkInterception
     end # DriverExtensions

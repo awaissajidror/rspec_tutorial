@@ -72,7 +72,7 @@ module Rack
         begin
           launcher.run
         rescue Interrupt
-          puts "* Gracefully stopping, waiting for requests to finish"
+          puts "* Gracefully stopping, waiting for controllers to finish"
           launcher.stop
           puts "* Goodbye!"
         end

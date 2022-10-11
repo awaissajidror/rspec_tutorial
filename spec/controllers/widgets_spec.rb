@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe('/widgets', type: :request) do
+RSpec.describe WidgetsController, type: :request do
 
   let(:valid_attributes) do
     skip('Add a hash of attributes valid for your model')

@@ -169,7 +169,7 @@ module Capybara
 
     if RUBY_PLATFORM == 'java'
       # JRuby < 9.2.8.0 has an issue with lazy enumerators which
-      # causes a concurrency issue with network requests here
+      # causes a concurrency issue with network controllers here
       # https://github.com/jruby/jruby/issues/4212
       # while JRuby >= 9.2.8.0 leaks threads when using lazy enumerators
       # https://github.com/teamcapybara/capybara/issues/2349

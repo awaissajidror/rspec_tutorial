@@ -34,7 +34,7 @@ module Rack
     end
 
     def call(env)
-      # HEAD requests drop the response body, including 4xx error messages.
+      # HEAD controllers drop the response body, including 4xx error messages.
       @head.call env
     end
 

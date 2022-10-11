@@ -72,7 +72,7 @@ module ActionController
   #     end
   #   end
   #
-  # And then to route requests to your metal controller, you would add
+  # And then to route controllers to your metal controller, you would add
   # something like this to <tt>config/routes.rb</tt>:
   #
   #   get 'hello', to: HelloController.action(:index)

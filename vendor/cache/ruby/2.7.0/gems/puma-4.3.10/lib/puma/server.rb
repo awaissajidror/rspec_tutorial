@@ -22,10 +22,10 @@ module Puma
   # The HTTP Server itself. Serves out a single Rack app.
   #
   # This class is used by the `Puma::Single` and `Puma::Cluster` classes
-  # to generate one or more `Puma::Server` instances capable of handling requests.
+  # to generate one or more `Puma::Server` instances capable of handling controllers.
   # Each Puma process will contain one `Puma::Server` instance.
   #
-  # The `Puma::Server` instance pulls requests from the socket, adds them to a
+  # The `Puma::Server` instance pulls controllers from the socket, adds them to a
   # `Puma::Reactor` where they get eventually passed to a `Puma::ThreadPool`.
   #
   # Each `Puma::Server` will have one reactor and one thread pool.
@@ -161,7 +161,7 @@ module Puma
     end
 
 
-    # This number represents the number of requests that
+    # This number represents the number of controllers that
     # the server is capable of taking right now.
     #
     # For example if the number is 5 then it means
@@ -276,7 +276,7 @@ module Puma
     # Runs the server.
     #
     # If +background+ is true (the default) then a thread is spun
-    # up in the background to handle requests. Otherwise requests
+    # up in the background to handle controllers. Otherwise controllers
     # are handled synchronously.
     #
     def run(background=true)
@@ -454,7 +454,7 @@ module Puma
       return false
     end
 
-    # Given a connection on +client+, handle the incoming requests.
+    # Given a connection on +client+, handle the incoming controllers.
     #
     # This method support HTTP Keep-Alive so it may, depending on if the client
     # indicates that it supports keep alive, wait for another request before
@@ -484,7 +484,7 @@ module Puma
             requests += 1
 
             # Closing keepalive sockets after they've made a reasonable
-            # number of requests allows Puma to service many connections
+            # number of controllers allows Puma to service many connections
             # fairly, even when the number of concurrent connections exceeds
             # the size of the threadpool. It also allows cluster mode Pumas
             # to keep load evenly distributed across workers, because clients
@@ -962,7 +962,7 @@ module Puma
       end
     end
 
-    # Wait for all outstanding requests to finish.
+    # Wait for all outstanding controllers to finish.
     #
     def graceful_shutdown
       if @options[:shutdown_debug]

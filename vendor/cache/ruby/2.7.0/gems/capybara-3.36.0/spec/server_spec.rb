@@ -166,7 +166,7 @@ RSpec.describe Capybara::Server do
       expect(servers[0].port).to eq(servers[1].port)
     end
 
-    it 'detects and waits for all reused server sessions pending requests' do
+    it 'detects and waits for all reused server sessions pending controllers' do
       done = 0
 
       app = proc do |env|
@@ -211,7 +211,7 @@ RSpec.describe Capybara::Server do
       expect(servers[0].port).not_to eq(servers[1].port)
     end
 
-    it 'detects and waits for only one sessions pending requests' do
+    it 'detects and waits for only one sessions pending controllers' do
       done = 0
 
       app = proc do |env|
@@ -250,7 +250,7 @@ RSpec.describe Capybara::Server do
     Capybara.server = :default
   end
 
-  it 'should raise an error when there are pending requests' do
+  it 'should raise an error when there are pending controllers' do
     app = proc do |env|
       request = Rack::Request.new(env)
       sleep request.params['wait_time'].to_f

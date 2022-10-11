@@ -206,9 +206,9 @@ module ActionDispatch #:nodoc:
 
     def upgrade_insecure_requests(enabled = true)
       if enabled
-        @directives["upgrade-insecure-requests"] = true
+        @directives["upgrade-insecure-controllers"] = true
       else
-        @directives.delete("upgrade-insecure-requests")
+        @directives.delete("upgrade-insecure-controllers")
       end
     end
 

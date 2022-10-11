@@ -227,7 +227,7 @@ module ActionController
   #
   # New Rails applications no longer generate functional style controller tests and they should
   # only be used for backward compatibility. Integration style controller tests perform actual
-  # requests, whereas functional style controller tests merely simulate a request. Besides,
+  # controllers, whereas functional style controller tests merely simulate a request. Besides,
   # integration tests are as fast as functional tests and provide lot of helpers such as +as+,
   # +parsed_body+ for effective testing of controller actions including even API endpoints.
   #
@@ -380,7 +380,7 @@ module ActionController
       # - +session+: A hash of parameters to store in the session. This may be +nil+.
       # - +flash+: A hash of parameters to store in the flash. This may be +nil+.
       #
-      # You can also simulate POST, PATCH, PUT, DELETE, and HEAD requests with
+      # You can also simulate POST, PATCH, PUT, DELETE, and HEAD controllers with
       # +post+, +patch+, +put+, +delete+, and +head+.
       # Example sending parameters, session and setting a flash message:
       #
@@ -452,7 +452,7 @@ module ActionController
       #     session: { user_id: 1 },
       #     flash: { notice: 'This is flash message' }
       #
-      # To simulate +GET+, +POST+, +PATCH+, +PUT+, +DELETE+ and +HEAD+ requests
+      # To simulate +GET+, +POST+, +PATCH+, +PUT+, +DELETE+ and +HEAD+ controllers
       # prefer using #get, #post, #patch, #put, #delete and #head methods
       # respectively which will make tests more expressive.
       #

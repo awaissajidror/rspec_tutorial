@@ -65,7 +65,7 @@ module Concurrent
   # # create an atom with an initial value
   # atom = Concurrent::Atom.new(next_fibonacci)
   #
-  # # send a few update requests
+  # # send a few update controllers
   # 5.times do
   #   atom.swap{|set| next_fibonacci(set) }
   # end

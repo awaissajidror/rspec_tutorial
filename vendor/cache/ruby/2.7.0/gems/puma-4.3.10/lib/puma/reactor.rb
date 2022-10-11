@@ -116,7 +116,7 @@ module Puma
     #
     # In addition to being woken via a write to one of the sockets the `NIO::Selector#select` will
     # periodically "time out" of the sleep. One of the functions of this is to check for
-    # any requests that have "timed out". At the end of the loop it's checked to see if
+    # any controllers that have "timed out". At the end of the loop it's checked to see if
     # the first element in the `@timeout` array has exceed its allowed time. If so,
     # the client object is removed from the timeout array, a 408 response is written.
     # Then its connection is closed, and the object is removed from the `sockets` array

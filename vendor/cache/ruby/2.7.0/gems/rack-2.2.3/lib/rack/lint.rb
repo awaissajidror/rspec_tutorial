@@ -3,7 +3,7 @@
 require 'forwardable'
 
 module Rack
-  # Rack::Lint validates your application and the requests and
+  # Rack::Lint validates your application and the controllers and
   # responses according to the Rack spec.
 
   class Lint

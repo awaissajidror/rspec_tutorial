@@ -108,7 +108,7 @@ module Puma
 
     # Start the Puma control rack application on +url+. This application can
     # be communicated with to control the main server. Additionally, you can
-    # provide an authentication token, so all requests to the control server
+    # provide an authentication token, so all controllers to the control server
     # will need to include that token as a query parameter. This allows for
     # simple authentication.
     #
@@ -205,7 +205,7 @@ module Puma
     end
 
     # Work around leaky apps that leave garbage in Thread locals
-    # across requests.
+    # across controllers.
     def clean_thread_locals(which=true)
       @options[:clean_thread_locals] = which
     end
@@ -227,7 +227,7 @@ module Puma
     # When shutting down, drain the accept socket of pending
     # connections and process them. This loops over the accept
     # socket until there are no more read events and then stops
-    # looking and waits for the requests to finish.
+    # looking and waits for the controllers to finish.
     def drain_on_shutdown(which=true)
       @options[:drain_on_shutdown] = which
     end
@@ -353,7 +353,7 @@ module Puma
     end
 
     # Configure +min+ to be the minimum number of threads to use to answer
-    # requests and +max+ the maximum.
+    # controllers and +max+ the maximum.
     #
     # The default is "0, 16".
     #
@@ -464,7 +464,7 @@ module Puma
     end
 
     # Code to run immediately before a worker shuts
-    # down (after it has finished processing HTTP requests). These hooks
+    # down (after it has finished processing HTTP controllers). These hooks
     # can block if necessary to wait for background operations unknown
     # to Puma to finish before the process terminates.
     #
@@ -515,7 +515,7 @@ module Puma
     # Code to run out-of-band when the worker is idle.
     # These hooks run immediately after a request has finished
     # processing and there are no busy threads on the worker.
-    # The worker doesn't accept new requests until this code finishes.
+    # The worker doesn't accept new controllers until this code finishes.
     #
     # This hook is useful for running out-of-band garbage collection
     # or scheduling asynchronous tasks to execute after a response.
@@ -635,7 +635,7 @@ module Puma
     # Verifies that all workers have checked in to the master process within
     # the given timeout. If not the worker process will be restarted. This is
     # not a request timeout, it is to protect against a hung or dead process.
-    # Setting this value will not protect against slow requests.
+    # Setting this value will not protect against slow controllers.
     #
     # The minimum value is 6 seconds, the default value is 60 seconds.
     #
@@ -671,19 +671,19 @@ module Puma
       @options[:worker_shutdown_timeout] = Integer(timeout)
     end
 
-    # When set to true (the default), workers accept all requests
+    # When set to true (the default), workers accept all controllers
     # and queue them before passing them to the handlers.
     # When set to false, each worker process accepts exactly as
-    # many requests as it is configured to simultaneously handle.
+    # many controllers as it is configured to simultaneously handle.
     #
-    # Queueing requests generally improves performance. In some
+    # Queueing controllers generally improves performance. In some
     # cases, such as a single threaded application, it may be
-    # better to ensure requests get balanced across workers.
+    # better to ensure controllers get balanced across workers.
     #
     # Note that setting this to false disables HTTP keepalive and
     # slow clients will occupy a handler thread while the request
     # is being sent. A reverse proxy, such as nginx, can handle
-    # slow clients and queue requests before they reach Puma.
+    # slow clients and queue controllers before they reach Puma.
     def queue_requests(answer=true)
       @options[:queue_requests] = answer
     end

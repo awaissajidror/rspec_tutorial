@@ -293,12 +293,12 @@ module ActionController
       # The inclusion of the ETag prevents a replay request for an updated version of the resource.
       # (Note: including the IP address of the client in the nonce would appear to offer the server the ability
       # to limit the reuse of the nonce to the same client that originally got it.
-      # However, that would break proxy farms, where requests from a single user often go through different proxies in the farm.
+      # However, that would break proxy farms, where controllers from a single user often go through different proxies in the farm.
       # Also, IP address spoofing is not that hard.)
       #
       # An implementation might choose not to accept a previously used nonce or a previously used digest, in order to
       # protect against a replay attack. Or, an implementation might choose to use one-time nonces or digests for
-      # POST, PUT, or PATCH requests and a time-stamp for GET requests. For more details on the issues involved see Section 4
+      # POST, PUT, or PATCH controllers and a time-stamp for GET controllers. For more details on the issues involved see Section 4
       # of this document.
       #
       # The nonce is opaque to the client. Composed of Time, and hash of Time with secret

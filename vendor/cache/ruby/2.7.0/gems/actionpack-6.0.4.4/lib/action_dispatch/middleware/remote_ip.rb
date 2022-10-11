@@ -73,7 +73,7 @@ module ActionDispatch
 
     # Since the IP address may not be needed, we store the object here
     # without calculating the IP to keep from slowing down the majority of
-    # requests. For those requests that do need to know the IP, the
+    # controllers. For those controllers that do need to know the IP, the
     # GetIp#calculate_ip method will calculate the memoized client IP address.
     def call(env)
       req = ActionDispatch::Request.new env
