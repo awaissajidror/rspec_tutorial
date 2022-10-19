@@ -1,68 +1,47 @@
-What is rspec
+* Model Specs
+    * gem 'shoulda-matchers'
+    * gem 'shoulda-callback-matchers'
 
-* Domain-specific language testing tool written in Ruby to test Ruby code
-* A behavior-driven development framework
+    # RSpec
+    RSpec.describe ClassName, type: :model do
+      describe 'associations' do
+        it { should belong_to(:city) }
+      end
 
-What is BDD & TDD / What’s the Difference? (TDD & BDD)
+      describe 'validations' do
+        it { should validate_presence_of(:name) }
+        it { should validate_uniqueness_of(:name) }
+      end
+    end
+    ====================================================================================================================
+    describe Post do
+      it { is_expected.to callback(:count_comments).before(:save) }
+      it { is_expected.to callback(:post_to_twitter).after(:create) }
+      it { is_expected.to callback(:evaluate_if_is_should_validate).before(:validation) }
+      it { is_expected.to callback(:add_some_convenience_accessors).after(:find) }
 
-* BDD is designed to test an application's behavior from the end user's standpoint
-* BDD is a development technique that focuses on the system's behavior
+      # with conditions
 
-* TDD is focused on testing smaller pieces of functionality in isolation.
-* TDD is a development technique that focuses more on the implementation of a feature.
+      it { is_expected.to callback(:assign_something).before(:create).if(:this_is_true) }
+      it { is_expected.to callback(:destroy_something_else).before(:destroy).unless(:this_is_true) }
+    end
 
-How You’re Testing
+* Instance Methods
+    it '#display_name' do
+        response = user.display_name
+        expect(response).to be_a(String)
+      end
+* Class Methods
+     describe ClassName do
+        context 'While testing .class_method' do
+          it 'should return a string' do
+          end
+        end
+      end
 
-* BDD involves product managers, developers, and test engineers who collaborate to come up
-  with concrete examples of desirable functionality.
-
-* TDD can be done by a solo developer without any external input
-
-How They Work Together(BDD / TDD)
-
-describe Person do
-	context 'When testing the Person class' do
-		it "should say 'Callie Trop' when we call the name method" do
-		end
-	end
-end
-
-Developers can then add TDD elements to test specific objects:
-
-it "should say 'Callie Trop' when we call the name method" do
-	person = Person.new
-	person_name = person.name
-	expect(person_name).to eq 'Callie Trop'
-end
-
-What are describe, context & it key words
-
-The describe Keyword
-
-* Is an RSpec keyword.
-* Used to define an "Example Group".
-* You can think as a collection of tests.
-* Can take a class name and/or string
-
-The context Keyword
-* Is similar to describe.
-* It too can accept a class name and/or string argument.
-* The idea of context is that it encloses tests of a certain type. (Give Example => Update)
-* Not mandatory, but it helps to add more details about the examples
-
-The it Keyword
-* Used to define an “Example”
-* Example is basically a test or a test case.
-* It describes that expected outcome is for the Example.
-
-The expect Keyword
-* Used to define an “Expectation” in RSpec.
-* expect(message).to eql "Hello World!"
-
-The to keyword
-
-* Used as part of expect statements
-* You can also use the not_to
-
-The eql keyword
-* Simply matcher
+* Tools
+    gem 'faker'
+        * name (first_name, middle_name,last_name)
+        * email
+        * password(length, complexity)
+    gem 'factory_bot_rails'
